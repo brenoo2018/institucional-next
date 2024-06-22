@@ -4,6 +4,8 @@ import './globals.css';
 import './blog.css';
 import Navbar from '@/components/Navbar';
 import Head from '@/components/Head';
+import Scripts from '@/components/Scripts';
+import Footer from '@/components/Footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -33,19 +35,8 @@ export default function RootLayout({
         <Head />
         <Navbar />
         {children}
-        <footer>footer aqui</footer>
-        <script
-          src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-          integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-          crossOrigin="anonymous"
-          async
-        ></script>
-        <script
-          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-          integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-          crossOrigin="anonymous"
-          async
-        ></script>
+        <Footer />
+        <Scripts />
       </body>
     </html>
   );

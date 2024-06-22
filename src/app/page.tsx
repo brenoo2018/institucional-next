@@ -1,7 +1,9 @@
+import SectionOne from '@/components/SectionOne';
+
 export default function Home() {
   return (
     <div>
-      <h1>Hello world</h1>
+      <SectionOne />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-export default function Head() {
+const Head = () => {
   return (
     <>
       <link
@@ -13,4 +13,6 @@ export default function Head() {
       />
     </>
   );
-}
+};
+
+export default Head;
