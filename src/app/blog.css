@@ -1,0 +1,21 @@
+.cover-blog-hero {
+  transition: 0.25s;
+  width: 100%;
+  height: 300px;
+}
+
+.cover-blog-hero:hover {
+  transform: scale(120%);
+}
+
+#content-post img {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+#content-post p {
+  color: #0009;
+  font-size: 18px !important;
+}
