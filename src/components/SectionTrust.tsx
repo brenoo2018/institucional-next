@@ -57,14 +57,14 @@ const SectionTrust = () => {
                     <div className="d-flex gap-2">
                       <Image
                         src="/img/george.jpg"
-                        className="aspect-ratio-1 rounded-circle object-fit-cover position-relative border border-2"
+                        className="aspect-ratio-1 rounded-circle object-fit-cover position-relative border-2"
                         width={50}
                         height={50}
                         alt="George"
                       />
                       <Image
                         src="/img/antônio-jose- soares.jpg"
-                        className="aspect-ratio-1 rounded-circle object-fit-cover position-relative border border-2"
+                        className="aspect-ratio-1 rounded-circle object-fit-cover position-relative border-2"
                         style={{ left: '-20px' }}
                         width={50}
                         height={50}
@@ -72,7 +72,7 @@ const SectionTrust = () => {
                       />
                       <Image
                         src="/img/claudio-correa.jpeg"
-                        className="aspect-ratio-1 rounded-circle object-fit-cover position-relative border border-2"
+                        className="aspect-ratio-1 rounded-circle object-fit-cover position-relative border-2"
                         style={{ left: '-40px' }}
                         width={50}
                         height={50}
@@ -80,7 +80,7 @@ const SectionTrust = () => {
                       />
                       <Image
                         src="/img/claudio-roberto.jpg"
-                        className="aspect-ratio-1 rounded-circle object-fit-cover position-relative border border-2"
+                        className="aspect-ratio-1 rounded-circle object-fit-cover position-relative border-2"
                         style={{ left: '-60px' }}
                         width={50}
                         height={50}
