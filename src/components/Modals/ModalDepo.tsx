@@ -3,7 +3,7 @@ type TPropsModal = {
   videoUrl: string;
   onClose: () => void;
 };
-const DepoModal = ({ show, videoUrl, onClose }: TPropsModal) => {
+const ModalDepo = ({ show, videoUrl, onClose }: TPropsModal) => {
   return (
     <div
       className={`modal fade ${show ? 'show d-block' : ''}`}
@@ -42,4 +42,4 @@ const DepoModal = ({ show, videoUrl, onClose }: TPropsModal) => {
   );
 };
 
-export default DepoModal;
+export default ModalDepo;
