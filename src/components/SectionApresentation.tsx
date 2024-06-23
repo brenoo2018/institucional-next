@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const SectionApresentation = () => {
   return (
-    <div className="background-gradient">
+    <section className="background-gradient">
       <div className="container">
         <div className="row">
           <div className="col-sm-12 col-md-6">
@@ -81,7 +81,7 @@ const SectionApresentation = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
