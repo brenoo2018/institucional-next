@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import ModalDepo from './ModalDepo';
+import ModalDepo from '../Modals/ModalDepo';
 import Image from 'next/image';
 const SectionDepositions = () => {
   const [currentVideo, setCurrentVideo] = useState('');
