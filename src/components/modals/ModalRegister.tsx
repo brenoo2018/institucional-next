@@ -8,12 +8,22 @@ type TPropsModal = {
 };
 
 const ModalRegister = ({ show, onClose }: TPropsModal) => {
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     message: '',
   });
+
+  const clearStates = () => {
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      message: '',
+    });
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -33,6 +43,7 @@ const ModalRegister = ({ show, onClose }: TPropsModal) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     const { name, email, phone, message } = formData;
 
     try {
@@ -49,6 +60,8 @@ const ModalRegister = ({ show, onClose }: TPropsModal) => {
       const data = await response.json();
       console.log('Email sent:', data);
 
+      setLoading(false);
+      clearStates();
       onClose();
 
       // Redirecionar para o WhatsApp
@@ -58,6 +71,7 @@ const ModalRegister = ({ show, onClose }: TPropsModal) => {
       )}`;
       window.open(whatsappUrl, '_blank');
     } catch (error) {
+      setLoading(false);
       alert('Por favor, revise seus dados de inscrição!');
     }
   };
@@ -133,8 +147,11 @@ const ModalRegister = ({ show, onClose }: TPropsModal) => {
                   <label htmlFor="message">Digite a mensagem aqui</label>
                 </div>
                 <div className="modal-footer">
-                  <button className="btn btn-lg bg-orange text-white rounded-pill border w-100">
-                    Inscrever-se
+                  <button
+                    disabled={loading}
+                    className="btn btn-lg bg-orange text-white rounded-pill border w-100"
+                  >
+                    {loading ? 'Enviando...' : 'Inscrever-se'}
                   </button>
                 </div>
               </form>
