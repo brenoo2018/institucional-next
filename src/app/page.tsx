@@ -1,9 +1,12 @@
-import SectionOne from '@/components/SectionOne';
+import SectionApresentation from '@/components/SectionApresentation';
 
-export default function Home() {
+const Home = () => {
   return (
-    <div>
-      <SectionOne />
-    </div>
+    <main>
+      <SectionApresentation />
+      <div className="divider"></div>
+    </main>
   );
-}
+};
+
+export default Home;
