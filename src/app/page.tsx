@@ -1,9 +1,9 @@
-import SectionApresentation from '@/components/Sections/SectionApresentation';
-import SectionCourses from '@/components/Sections/SectionCourses';
-import SectionDepositions from '@/components/Sections/SectionDepositions';
-import SectionOurStudent from '@/components/Sections/SectionOurStudent';
-import SectionStatistics from '@/components/Sections/SectionStatistics';
-import SectionTrust from '@/components/Sections/SectionTrust';
+import SectionApresentation from '@/components/sections/SectionApresentation';
+import SectionCourses from '@/components/sections/SectionCourses';
+import SectionDepositions from '@/components/sections/SectionDepositions';
+import SectionOurStudent from '@/components/sections/SectionOurStudent';
+import SectionStatistics from '@/components/sections/SectionStatistics';
+import SectionTrust from '@/components/sections/SectionTrust';
 
 const Home = () => {
   return (

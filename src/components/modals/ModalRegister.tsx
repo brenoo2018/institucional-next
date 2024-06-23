@@ -36,13 +36,18 @@ const ModalRegister = ({ show, onClose }: TPropsModal) => {
     const { name, email, phone, message } = formData;
 
     try {
-      await fetch('/contact', {
+      const response = await fetch('/api/send', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, phone, message }),
       });
+
+      if (!response.ok) {
+        throw new Error('Something went wrong');
+      }
+
+      const data = await response.json();
+      console.log('Email sent:', data);
 
       onClose();
 

@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import ModalRegister from '../Modals/ModalRegister';
+import ModalRegister from '../modals/ModalRegister';
 import { useState } from 'react';
 
 const SectionApresentation = () => {

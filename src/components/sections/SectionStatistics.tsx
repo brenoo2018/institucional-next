@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import ModalRegister from '../Modals/ModalRegister';
+import ModalRegister from '../modals/ModalRegister';
 
 const SectionStatistics = () => {
   const [modalVisible, setModalVisible] = useState(false);

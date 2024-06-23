@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
-import ModalRegister from '../Modals/ModalRegister';
+import ModalRegister from '../modals/ModalRegister';
 
 const SectionCourses = () => {
   const [modalVisible, setModalVisible] = useState(false);
