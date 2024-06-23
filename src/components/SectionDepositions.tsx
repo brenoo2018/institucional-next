@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import Modal from './Modal';
+import ModalDepo from './ModalDepo';
 import Image from 'next/image';
 const SectionDepositions = () => {
   const [currentVideo, setCurrentVideo] = useState('');
@@ -134,7 +134,11 @@ const SectionDepositions = () => {
         </div>
       </section>
 
-      <Modal show={modalVisible} videoUrl={currentVideo} onClose={closeModal} />
+      <ModalDepo
+        show={modalVisible}
+        videoUrl={currentVideo}
+        onClose={closeModal}
+      />
     </>
   );
 };
