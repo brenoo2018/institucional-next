@@ -1,5 +1,6 @@
 import SectionApresentation from '@/components/SectionApresentation';
 import SectionCourses from '@/components/SectionCourses';
+import SectionDepositions from '@/components/SectionDepositions';
 import SectionStatistics from '@/components/SectionStatistics';
 import SectionTrust from '@/components/SectionTrust';
 
@@ -12,6 +13,7 @@ const Home = () => {
       <SectionCourses />
       <SectionStatistics />
       <div className="divider"></div>
+      <SectionDepositions />
     </main>
   );
 };
