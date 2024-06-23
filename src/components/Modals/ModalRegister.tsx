@@ -1,6 +1,6 @@
 'use client';
-import { phoneMask } from '@/utils/mask';
 import { useState } from 'react';
+import { phoneMask } from '@/utils/mask';
 
 type TPropsModal = {
   show: boolean;
@@ -19,9 +19,9 @@ const ModalRegister = ({ show, onClose }: TPropsModal) => {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { id, value } = e.target;
-    console.log('aa', id, value);
+
     if (id === 'phone') {
-      if (value.length === 16) return;
+      if (value.length === 16) return; // Limitação do tamanho do telefone para a máscara
 
       const maskedPhone = phoneMask(value);
       setFormData({ ...formData, [id]: maskedPhone });
@@ -61,11 +61,12 @@ const ModalRegister = ({ show, onClose }: TPropsModal) => {
     <>
       {show && <div className="modal-backdrop fade show"></div>}
       <div
-        className={`modal fade ${show ? 'show d-block' : ''}`}
+        className={`modal fade ${show ? 'show' : ''}`}
         tabIndex={-1}
         aria-labelledby="registerModalLabel"
         aria-hidden={!show}
         role="dialog"
+        style={{ display: show ? 'block' : 'none' }}
       >
         <div className="modal-dialog">
           <div className="modal-content">
@@ -87,7 +88,7 @@ const ModalRegister = ({ show, onClose }: TPropsModal) => {
                     type="text"
                     className="form-control"
                     id="name"
-                    placeholder="João Batista"
+                    placeholder="Nome do interessado"
                     value={formData.name}
                     onChange={handleChange}
                   />
@@ -98,7 +99,7 @@ const ModalRegister = ({ show, onClose }: TPropsModal) => {
                     type="email"
                     className="form-control"
                     id="email"
-                    placeholder="email@email.com"
+                    placeholder="meumelhoremail@email.com"
                     value={formData.email}
                     onChange={handleChange}
                   />
@@ -113,7 +114,6 @@ const ModalRegister = ({ show, onClose }: TPropsModal) => {
                     value={formData.phone}
                     onChange={handleChange}
                   />
-                  <label htmlFor="phone">Telefone</label>
                   <label htmlFor="phone">Telefone</label>
                 </div>
                 <div className="form-floating mt-3">
