@@ -15,8 +15,8 @@ export async function POST(request: Request) {
   const { name, email, phone, message } = bodySchema.parse(body);
   try {
     const { data, error } = await resend.emails.send({
-      from: 'noreply@faculdadecatolicadomaranhao.com',
-      to: ['ouvidoria@iesma.edu.br'],
+      from: process.env.EMAIL_SENDER!,
+      to: [process.env.EMAIL_RECIPIENT!],
       subject: 'Novo contato recebido!',
       react: ContactTemplate({ name, email, phone, message }),
     });

@@ -1,23 +1,24 @@
-import SectionApresentation from '@/components/sections/SectionApresentation';
-import SectionCourses from '@/components/sections/SectionCourses';
-import SectionDepositions from '@/components/sections/SectionDepositions';
-import SectionOurStudent from '@/components/sections/SectionOurStudent';
-import SectionStatistics from '@/components/sections/SectionStatistics';
-import SectionTrust from '@/components/sections/SectionTrust';
+import {
+  Divider,
+  SectionApresentation,
+  SectionCourses,
+  SectionDepositions,
+  SectionOurStudent,
+  SectionStatistics,
+  SectionTrust,
+} from '@/components/';
 
-const Home = () => {
+export default function Home() {
   return (
-    <main>
+    <>
       <SectionApresentation />
-      <div className="divider"></div>
+      <Divider />
       <SectionTrust />
       <SectionCourses />
       <SectionStatistics />
-      <div className="divider"></div>
+      <Divider />
       <SectionDepositions />
       <SectionOurStudent />
-    </main>
+    </>
   );
-};
-
-export default Home;
+}

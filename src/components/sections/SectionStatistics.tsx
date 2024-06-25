@@ -116,4 +116,4 @@ const SectionStatistics = () => {
   );
 };
 
-export default SectionStatistics;
+export { SectionStatistics };

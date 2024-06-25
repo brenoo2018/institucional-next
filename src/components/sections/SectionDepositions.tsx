@@ -143,4 +143,4 @@ const SectionDepositions = () => {
   );
 };
 
-export default SectionDepositions;
+export { SectionDepositions };

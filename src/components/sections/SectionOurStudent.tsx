@@ -35,4 +35,4 @@ const SectionOurStudent = () => {
   );
 };
 
-export default SectionOurStudent;
+export { SectionOurStudent };
