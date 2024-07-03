@@ -1,36 +1,32 @@
-import axios from 'axios';
 import { NextRequest, NextResponse } from 'next/server';
 
-const DOMAIN = 'https://iesma.com.br';
-// const DOMAIN = 'https://faculdadecatolicadomaranhao.com'; // mudar pra esse depois de configurado
-
 export async function GET(request: NextRequest): Promise<NextResponse> {
+  const { searchParams } = new URL(request.url);
+
+  const page = searchParams.get('page');
+  const per_page = searchParams.get('per_page');
+
   try {
-    const response = await axios.get(
-      `${DOMAIN}/wp-json/wp/v2/posts?per_page=100`,
+    const res = await fetch(
+      `${process.env.WORDPRESS_API_URL}/?posts=${page}&per_page=${per_page}`
     );
-    if (response.status === 200) {
-      return NextResponse.json(
-        { error: false, data: response.data },
-        { status: 200 },
-      );
-    } else {
-      return NextResponse.json(
-        {
-          error: true,
-          message: 'Não foi possível processar a solicitação',
-        },
-        { status: response.status },
-      );
+    const data = await res.json();
+
+    if (!res.ok) {
+      console.error(data);
+      throw new Error('Failed to fetch API');
     }
+
+    const total = parseInt(res.headers.get('X-WP-Total') || '0', 10);
+
+    return NextResponse.json({ pages: data, total });
   } catch (err) {
-    console.log('houve um erro', err);
+    console.error('houve um erro', err);
     return NextResponse.json(
       {
-        error: true,
         message: 'Não foi possível processar a solicitação',
       },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

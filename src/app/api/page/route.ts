@@ -1,27 +1,20 @@
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
 
-  const page = searchParams.get('page');
-  const per_page = searchParams.get('per_page');
+  const slug = searchParams.get('slug');
+  console.log('🚀 ~ GET ~ slug:', slug);
 
   try {
     const res = await fetch(
-      `${process.env.WORDPRESS_API_URL}/?page=${page}&per_page=${per_page}`
+      `${process.env.WORDPRESS_API_URL}/pages?slug=${slug}`
     );
     const data = await res.json();
-
-    if (!res.ok) {
-      console.error(data);
-      throw new Error('Failed to fetch API');
-    }
-
-    const total = parseInt(res.headers.get('X-WP-Total') || '0', 10);
 
     if (!res.ok) {
       return Response.json({ message: res.statusText }, { status: 500 });
     }
 
-    return Response.json({ pages: data, total });
+    return Response.json({ page: data[0] });
   } catch (err) {
     console.error('houve um erro', err);
     return Response.json(

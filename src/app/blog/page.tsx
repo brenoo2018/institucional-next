@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default async function Blog() {
   const { posts } = await getPosts();
-  // console.log(posts, posts.length);
+  console.log(posts, posts.length);
   return (
     <div>
       <h1>Blog</h1>

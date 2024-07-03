@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  line-height: 1.6;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+}
+
 .bg-orange {
   transition: 0.25s;
   background-color: rgb(236, 98, 0) !important;
@@ -161,4 +167,43 @@ table tbody tr:last-of-type {
   .nav-link {
     width: 100%;
   }
+}
+
+/* .content-post {
+  text-align: justify;
+} */
+
+/* styles.css */
+#content-post {
+  text-align: justify;
+}
+
+#content-post h3,
+#content-post h4,
+#content-post h5,
+#content-post h6 {
+  margin-top: 1.5em;
+}
+
+#content-post p {
+  margin-bottom: 1em;
+  color: #212529 !important;
+}
+
+#content-post img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1em 0;
+}
+
+#content-post a {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+#content-post ul,
+#content-post ol {
+  padding-left: 1.5em;
+  margin-bottom: 1em;
 }
