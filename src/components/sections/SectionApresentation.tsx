@@ -100,4 +100,4 @@ const SectionApresentation = () => {
   );
 };
 
-export default SectionApresentation;
+export { SectionApresentation };

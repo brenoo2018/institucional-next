@@ -318,4 +318,4 @@ const SectionCourses = () => {
   );
 };
 
-export default SectionCourses;
+export { SectionCourses };

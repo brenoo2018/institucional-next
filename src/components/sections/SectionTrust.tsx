@@ -111,4 +111,4 @@ const SectionTrust = () => {
   );
 };
 
-export default SectionTrust;
+export { SectionTrust };

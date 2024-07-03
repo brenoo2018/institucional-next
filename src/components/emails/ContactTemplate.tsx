@@ -1,3 +1,6 @@
+import { Metadata } from 'next';
+import Head from 'next/head';
+import Image from 'next/image';
 import React from 'react';
 
 interface ContactTemplateProps {
@@ -6,6 +9,10 @@ interface ContactTemplateProps {
   phone: string;
   message: string;
 }
+const metadata: Metadata = {
+  title: 'Contato',
+  description: 'Contato',
+};
 
 export const ContactTemplate = ({
   name,
@@ -31,10 +38,12 @@ export const ContactTemplate = ({
     </head>
     <body>
       <div className="logo-container">
-        <img
+        <Image
           src="https://iesma.com.br/wp-content/uploads/2024/01/cropped-cropped-Design-sem-nome-12.png"
           alt="Logo da Empresa"
           className="logo"
+          width={200}
+          height={200}
         />
       </div>
       <h2>Novo contato recebido!</h2>
