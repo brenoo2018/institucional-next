@@ -14,7 +14,6 @@ export default async function Page({ params }: TPropsPage) {
   });
   const result = await response.json();
   const { page } = result;
-  // console.log('🚀 ~ Page ~ page:', page);
 
   let contentRendered = page.content.rendered;
   let imageUrl = '';

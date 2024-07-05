@@ -163,17 +163,6 @@ table tbody tr:last-of-type {
   background-image: linear-gradient(120deg, #00527b, #00112d);
 }
 
-@media (max-width: 1024px) {
-  .nav-link {
-    width: 100%;
-  }
-}
-
-/* .content-post {
-  text-align: justify;
-} */
-
-/* styles.css */
 #content-post {
   text-align: justify;
 }
@@ -210,6 +199,12 @@ table tbody tr:last-of-type {
 
 .img-diretor img {
   height: 400px;
+}
+
+@media (max-width: 1024px) {
+  .nav-link {
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
