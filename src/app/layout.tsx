@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import './blog.css';
 import Navbar from '@/components/Navbar';
+// const Navbar = dynamic(() => import('@/components/Navbar'), { ssr: false });
 import Head from '@/components/Head';
 import Scripts from '@/components/Scripts';
 import Footer from '@/components/Footer';

@@ -1,7 +1,11 @@
 import Pagination from '@/components/Pagination';
 import { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
+// const Pagination = dynamic(() => import('@/components/Pagination'), {
+//   ssr: false,
+// });
 
 type TPropsSearchParams = {
   page?: string;
@@ -33,6 +37,7 @@ export default async function Blog({
   // console.log('🚀 ~ posts:', posts);
 
   return (
+    // <h1>blog</h1>
     <div>
       <main>
         <div className="container">

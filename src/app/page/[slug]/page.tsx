@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 type TPropsPage = {
   params: {
@@ -43,7 +44,7 @@ export default async function Page({ params }: TPropsPage) {
               <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
                   <li className="breadcrumb-item">
-                    <a href="/">Início</a>
+                    <Link href="/">Início</Link>
                   </li>
                   <li className="breadcrumb-item active" aria-current="page">
                     {page.title.rendered}
@@ -96,7 +97,6 @@ export default async function Page({ params }: TPropsPage) {
                 </div>
               ) : (
                 <>
-                  {console.log('eaii')}
                   {page.featured_image_urls &&
                     page.featured_image_urls.full && (
                       <Image

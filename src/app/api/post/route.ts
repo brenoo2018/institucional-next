@@ -16,7 +16,7 @@ export async function GET(request: Request): Promise<NextResponse> {
       throw new Error('Failed to fetch API');
     }
 
-    return NextResponse.json({ page: data[0] }, { status: 200 });
+    return NextResponse.json({ post: data[0] }, { status: 200 });
   } catch (err) {
     console.error('houve um erro', err);
     return NextResponse.json(
