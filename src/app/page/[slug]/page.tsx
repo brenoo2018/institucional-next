@@ -16,6 +16,25 @@ export default async function Page({ params }: TPropsPage) {
   const { page } = result;
   // console.log('🚀 ~ Page ~ page:', page);
 
+  let contentRendered = page.content.rendered;
+  let imageUrl = '';
+  let textContent = contentRendered;
+  let lastParagraph = '';
+
+  if (params.slug === 'palavra-do-diretor') {
+    // Extrair URL da imagem do conteúdo renderizado
+    const imageUrlMatch = contentRendered.match(/<img[^>]+src="([^">]+)"/);
+    imageUrl = imageUrlMatch ? imageUrlMatch[1] : '';
+
+    // Extrair e remover o último parágrafo do conteúdo renderizado
+    let paragraphs = contentRendered.match(/<p[^>]*>.*?<\/p>/gs) || [];
+    lastParagraph = paragraphs.pop(); // Pega o último parágrafo
+    textContent = paragraphs.join(''); // Recria o conteúdo sem o último parágrafo
+
+    // Remover a imagem do conteúdo principal
+    textContent = textContent.replace(/<figure.*<\/figure>/, '').trim();
+  }
+
   return (
     <main>
       <section>
@@ -36,7 +55,7 @@ export default async function Page({ params }: TPropsPage) {
             <h1>{page.title.rendered}</h1>
             <div className="d-flex my-3">
               <Image
-                src="https://iesma.com.br/wp-content/uploads/2024/01/cropped-cropped-Design-sem-nome-12.png"
+                src="/img/logo_normal.png"
                 width={40}
                 height={40}
                 className="rounded-circle object-fit-cover"
@@ -49,21 +68,55 @@ export default async function Page({ params }: TPropsPage) {
                 </p>
               </div>
             </div>
-            {page.featured_image_urls && page.featured_image_urls.full && (
-              <Image
-                className="object-fit-contain w-100 rounded-4 my-4 bg-light"
-                style={{ aspectRatio: '16/9' }}
-                src={page.featured_image_urls.full[0]}
-                alt="Featured"
-                width={800}
-                height={450}
-              />
-            )}
-            <div
-              id="content-post"
-              className="wp-content"
-              dangerouslySetInnerHTML={{ __html: page.content.rendered }}
-            />
+            <>
+              {params.slug === 'palavra-do-diretor' ? (
+                <div className="row align-items-center my-4">
+                  <div className="col-lg-5 col-md-6 text-center">
+                    <div className="img-diretor">
+                      <Image
+                        height={400}
+                        width={400}
+                        src={imageUrl}
+                        alt="Imagem do Diretor"
+                        className="img-fluid rounded-circle border border-white"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-lg-7 col-md-6 mt-4 mt-md-0">
+                    <div
+                      id="content-post"
+                      className="wp-content"
+                      dangerouslySetInnerHTML={{ __html: textContent }}
+                    />
+                    <div
+                      id="content-post"
+                      className="wp-content text-end"
+                      dangerouslySetInnerHTML={{ __html: lastParagraph }}
+                    />
+                  </div>
+                </div>
+              ) : (
+                <>
+                  {console.log('eaii')}
+                  {page.featured_image_urls &&
+                    page.featured_image_urls.full && (
+                      <Image
+                        className="object-fit-contain w-100 rounded-4 my-4 bg-light"
+                        style={{ aspectRatio: '16/9' }}
+                        src={page.featured_image_urls.full[0]}
+                        alt="Featured"
+                        width={800}
+                        height={450}
+                      />
+                    )}
+                  <div
+                    id="content-post"
+                    className="wp-content"
+                    dangerouslySetInnerHTML={{ __html: page.content.rendered }}
+                  />
+                </>
+              )}
+            </>
           </div>
         </div>
       </section>
