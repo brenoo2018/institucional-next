@@ -1,12 +1,19 @@
 'use client';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ModalRegister from './modals/ModalRegister';
 import { Divider } from './_common';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
   const [modalVisible, setModalVisible] = useState(false);
+  const [isBlogPage, setIsBlogPage] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setIsBlogPage(pathname.includes('/blog'));
+  }, [pathname]);
 
   const openModal = () => {
     setModalVisible(true);
@@ -329,7 +336,7 @@ const Navbar = () => {
             </div>
           </div>
         </nav>
-        {window.location.pathname.includes('blog') && (
+        {isBlogPage && (
           <>
             <div className="container">
               <div className="row">

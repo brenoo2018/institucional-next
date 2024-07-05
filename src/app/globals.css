@@ -201,6 +201,12 @@ table tbody tr:last-of-type {
   height: 400px;
 }
 
+.active > .page-link,
+.page-link.active {
+  border-color: rgb(236, 98, 0) !important;
+  background-color: rgb(236, 98, 0) !important;
+}
+
 @media (max-width: 1024px) {
   .nav-link {
     width: 100%;

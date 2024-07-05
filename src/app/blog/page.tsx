@@ -18,7 +18,6 @@ export default async function Blog({
 }: {
   searchParams?: TPropsSearchParams;
 }) {
-  console.log('🚀 ~ searchParams:', searchParams?.page);
   const page = searchParams?.page || '1';
   const per_page = searchParams?.per_page || '10';
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
