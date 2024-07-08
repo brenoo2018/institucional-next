@@ -13,7 +13,7 @@ const Footer = () => {
               href="/page/quem-somos"
               className="text-decoration-none mb-2 text-secondary"
             >
-              Quem somos
+              Apresentação
             </Link>
             <br />
             <Link

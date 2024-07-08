@@ -62,7 +62,10 @@ export default async function Post({ params }: TPropsPost) {
                 alt="Logo"
               />
               <div>
-                <p className="m-0 fw-semibold">IESMA</p>
+                <p className="m-0 fw-semibold">
+                  {' '}
+                  Faculdade Católica do Maranhão
+                </p>
                 <p className="m-0 tiny-text">
                   {new Date(post.modified_gmt).toLocaleString()}
                 </p>

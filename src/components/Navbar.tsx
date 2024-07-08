@@ -10,10 +10,12 @@ import Apresentation from './Apresentation';
 const Navbar = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [isBlogPage, setIsBlogPage] = useState(false);
+  const [isHomePage, setIsHomePage] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
     setIsBlogPage(pathname.includes('/blog'));
+    setIsHomePage(pathname === '/');
   }, [pathname]);
 
   const openModal = () => {
@@ -65,7 +67,15 @@ const Navbar = () => {
                         href="/page/quem-somos"
                         className="dropdown-item text-white"
                       >
-                        Quem somos
+                        Apresentação
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/page/breve-historico-da-instituicao"
+                        className="dropdown-item text-white"
+                      >
+                        Breve História
                       </Link>
                     </li>
                     <li>
@@ -337,7 +347,8 @@ const Navbar = () => {
             </div>
           </div>
         </nav>
-        {isBlogPage ? <ApresentationBlog /> : <Apresentation />}
+        {isBlogPage && <ApresentationBlog />}
+        {isHomePage && <Apresentation />}
       </header>
       <ModalRegister show={modalVisible} onClose={closeModal} />
     </>

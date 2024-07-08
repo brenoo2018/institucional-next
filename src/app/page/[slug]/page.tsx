@@ -62,7 +62,9 @@ export default async function Page({ params }: TPropsPage) {
                 alt="Logo"
               />
               <div>
-                <p className="m-0 fw-semibold">IESMA</p>
+                <p className="m-0 fw-semibold">
+                  Faculdade Católica do Maranhão
+                </p>
                 <p className="m-0 tiny-text">
                   {new Date(page.modified_gmt).toLocaleString()}
                 </p>
