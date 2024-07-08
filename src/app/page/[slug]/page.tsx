@@ -9,6 +9,7 @@ type TPropsPage = {
 
 export default async function Page({ params }: TPropsPage) {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+  console.log('🚀 ~ Page ~ baseUrl:', baseUrl);
   const response = await fetch(`${baseUrl}/api/page?slug=${params.slug}`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },

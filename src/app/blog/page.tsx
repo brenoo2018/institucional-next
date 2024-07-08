@@ -21,6 +21,7 @@ export default async function Blog({
   const page = searchParams?.page || '1';
   const per_page = searchParams?.per_page || '10';
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+  console.log('🚀 ~ baseUrl:', baseUrl);
 
   const response = await fetch(
     `${baseUrl}/api/posts?page=${page}&per_page=${per_page}`,
