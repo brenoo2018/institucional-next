@@ -99,16 +99,16 @@ body {
 }
 
 /* CSS específico para page.ejs */
-body.page-template .navbar .dropdown-menu {
-  background-color: black !important; /* Cor de fundo branca */
+.navbar .dropdown-menu {
+  background-color: black; /* Cor de fundo branca */
 }
 
-body.page-template .navbar .dropdown-item {
+.navbar .dropdown-item {
   color: white; /* Texto preto */
 }
 
-body.page-template .navbar .dropdown-item:hover,
-body.page-template .navbar .dropdown-item:focus {
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -207,6 +207,59 @@ table tbody tr:last-of-type {
   background-color: rgb(236, 98, 0) !important;
 }
 
+.carousel {
+  position: relative;
+  max-width: 100%;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.carousel img {
+  width: 100%;
+  border-radius: 15px;
+  max-height: 720px;
+  object-fit: cover;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+}
+
+.carousel-buttons {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 20px;
+}
+
+.carousel-buttons button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.carousel-buttons button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.transitioning {
+  transition: opacity 0.6s ease;
+}
+
 @media (max-width: 1024px) {
   .nav-link {
     width: 100%;
@@ -219,5 +272,9 @@ table tbody tr:last-of-type {
     margin-bottom: 20px;
     border-radius: 20px !important;
     height: auto;
+  }
+  .carousel-item img {
+    height: 280px;
+    object-fit: fill;
   }
 }

@@ -46,7 +46,6 @@ export default async function Blog({
               {posts.slice(0, 6).map((post: any) => (
                 <div className="col-sm-12 col-md-4 mb-3" key={post.id}>
                   <Link
-                    style={{ textAlign: 'justify' }}
                     href={`/blog/${post.slug}`}
                     className="text-decoration-none text-black"
                   >
@@ -67,6 +66,7 @@ export default async function Blog({
                               : post.title.rendered}
                           </h2>
                           <div
+                            style={{ textAlign: 'justify' }}
                             dangerouslySetInnerHTML={{
                               __html: post.excerpt.rendered,
                             }}
@@ -118,7 +118,7 @@ export default async function Blog({
                         unoptimized
                       />
                     </div>
-                    <div className="col-9" style={{ textAlign: 'justify' }}>
+                    <div className="col-9">
                       <h2
                         className="d-inline-block text-truncate"
                         style={{ maxWidth: '100%' }}
@@ -126,6 +126,7 @@ export default async function Blog({
                         {post.title.rendered}
                       </h2>
                       <div
+                        style={{ textAlign: 'justify' }}
                         dangerouslySetInnerHTML={{
                           __html: post.excerpt.rendered,
                         }}

@@ -6,3 +6,6 @@ export * from './Footer';
 export * from './Navbar';
 export * from './_common';
 export * from './Pagination';
+export * from './Carousel';
+export * from './ApresentationBlog';
+export * from './Apresentation';

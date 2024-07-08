@@ -1,4 +1,3 @@
-export * from './SectionApresentation';
 export * from './SectionCourses';
 export * from './SectionDepositions';
 export * from './SectionOurStudent';

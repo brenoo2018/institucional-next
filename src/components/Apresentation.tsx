@@ -1,10 +1,11 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import ModalRegister from '../modals/ModalRegister';
 import { useState } from 'react';
+import ModalRegister from './modals/ModalRegister';
+import Carousel from './Carousel';
 
-const SectionApresentation = () => {
+const Apresentation = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const openModal = () => {
@@ -18,6 +19,7 @@ const SectionApresentation = () => {
     <>
       <section className="background-gradient">
         <div className="container">
+          <Carousel />
           <div className="row">
             <div className="col-sm-12 col-md-6">
               <div className="pe-md-5">
@@ -100,4 +102,4 @@ const SectionApresentation = () => {
   );
 };
 
-export { SectionApresentation };
+export default Apresentation;

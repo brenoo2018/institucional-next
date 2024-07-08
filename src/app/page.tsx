@@ -1,6 +1,5 @@
 import {
   Divider,
-  SectionApresentation,
   SectionCourses,
   SectionDepositions,
   SectionOurStudent,
@@ -11,7 +10,6 @@ import {
 export default function Home() {
   return (
     <>
-      <SectionApresentation />
       <Divider />
       <SectionTrust />
       <SectionCourses />
