@@ -69,7 +69,7 @@ export default async function Post({ params }: TPropsPost) {
                   Faculdade Católica do Maranhão
                 </p>
                 <p className="m-0 tiny-text">
-                  {new Date(post.modified_gmt).toLocaleString()}
+                  {new Date(post.date).toLocaleString()}
                 </p>
               </div>
             </div>

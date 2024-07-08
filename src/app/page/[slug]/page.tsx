@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { Metadata } from 'next';
 
 type TPropsPage = {
   params: {
@@ -7,15 +8,86 @@ type TPropsPage = {
   };
 };
 
-export default async function Page({ params }: TPropsPage) {
+type PageData = {
+  title: {
+    rendered: string;
+  };
+  excerpt: {
+    rendered: string;
+  };
+  content: {
+    rendered: string;
+  };
+  modified_gmt: string;
+  featured_image_urls?: {
+    full: string[];
+  };
+};
+
+async function fetchPageData(slug: string): Promise<PageData> {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-  console.log('🚀 ~ Page ~ baseUrl:', baseUrl);
-  const response = await fetch(`${baseUrl}/api/page?slug=${params.slug}`, {
+  const response = await fetch(`${baseUrl}/api/page?slug=${slug}`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
   });
   const result = await response.json();
-  const { page } = result;
+  return result.page;
+}
+
+export async function generateMetadata({
+  params,
+}: TPropsPage): Promise<Metadata> {
+  const page = await fetchPageData(params.slug);
+
+  return {
+    title: page.title.rendered,
+    description: page.excerpt.rendered.replace(/<[^>]*>/g, ''), // Remove HTML tags
+    openGraph: {
+      title: page.title.rendered,
+      description: page.excerpt.rendered.replace(/<[^>]*>/g, ''), // Remove HTML tags
+      type: 'article',
+      url: `${
+        process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
+      }/page/${params.slug}`,
+      images: [
+        {
+          url: page.featured_image_urls
+            ? page.featured_image_urls.full[0]
+            : '/default-image.jpg',
+          width: 1200,
+          height: 630,
+          alt: page.title.rendered,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: page.title.rendered,
+      description: page.excerpt.rendered.replace(/<[^>]*>/g, ''), // Remove HTML tags
+      images: [
+        page.featured_image_urls
+          ? page.featured_image_urls.full[0]
+          : '/default-image.jpg',
+      ],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large',
+      'max-video-preview': -1,
+    },
+    icons: {
+      icon: '/img/favicon.ico', // Caminho para o seu favicon
+    },
+    alternates: {
+      canonical: 'https://www.faculdadecatolicadomaranhao.com/', // URL canônica da sua página
+    },
+  };
+}
+
+export default async function Page({ params }: TPropsPage) {
+  const page = await fetchPageData(params.slug);
 
   let contentRendered = page.content.rendered;
   let imageUrl = '';
@@ -29,7 +101,7 @@ export default async function Page({ params }: TPropsPage) {
 
     // Extrair e remover o último parágrafo do conteúdo renderizado
     let paragraphs = contentRendered.match(/<p[^>]*>.*?<\/p>/gs) || [];
-    lastParagraph = paragraphs.pop(); // Pega o último parágrafo
+    lastParagraph = paragraphs.pop() as string; // Pega o último parágrafo
     textContent = paragraphs.join(''); // Recria o conteúdo sem o último parágrafo
 
     // Remover a imagem do conteúdo principal

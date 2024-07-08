@@ -21,7 +21,7 @@ export default async function Blog({
   const page = searchParams?.page || '1';
   const per_page = searchParams?.per_page || '10';
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-  console.log('🚀 ~ baseUrl:', baseUrl);
+  // console.log('🚀 ~ baseUrl:', baseUrl);
 
   const response = await fetch(
     `${baseUrl}/api/posts?page=${page}&per_page=${per_page}`,
@@ -54,7 +54,7 @@ export default async function Blog({
                               Notícia
                             </button>
                             <p className="m-0 tiny-text">
-                              {new Date(post.modified_gmt).toLocaleDateString()}
+                              {new Date(post.date).toLocaleDateString()}
                             </p>
                           </div>
                           <h2 className="text-decoration-none text-black fs-3">
