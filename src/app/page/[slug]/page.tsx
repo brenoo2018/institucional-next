@@ -61,6 +61,8 @@ export default async function Page({ params }: TPropsPage) {
                 height={40}
                 className="rounded-circle object-fit-cover"
                 alt="Logo"
+                quality={100}
+                unoptimized
               />
               <div>
                 <p className="m-0 fw-semibold">
