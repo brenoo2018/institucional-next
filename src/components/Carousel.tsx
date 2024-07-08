@@ -34,8 +34,8 @@ const Carousel = () => {
                 src={slide.src}
                 className="d-block w-100"
                 alt={slide.alt}
-                width={800}
-                height={400}
+                width={1980}
+                height={720}
                 quality={100}
                 unoptimized
               />
